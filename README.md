@@ -1,2 +1,2 @@
-# Zomata
+# Zomato
 LWC integration with Zomato
