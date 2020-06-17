@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Restuarants"   icon-name="action:filter">
+        <ul class="slds-has-dividers_bottom-space">
+           <template for:each={restaurantsList} for:item='rest'>
+            <!--   <p key={rest.restaurant.id}>{rest.restaurant.name}</p>-->
+             <c-single-restuarant rest={rest} key={rest.restaurant.id} onrestdetail={handleCustomEvent}></c-single-restuarant>
+             
+           </template>
+        </ul>
+    </lightning-card>
+  
+</template>

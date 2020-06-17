@@ -1,0 +1,16 @@
+<template>
+  <lightning-card title="Enter Location"  icon-name="standard:address">
+      <lightning-layout>
+          <lightning-layout-item size="6"  padding="around-small">
+            <lightning-input label='Location' onchange={onChangeLocationHandler} class="slds-p-around_small"></lightning-input>
+            <lightning-button label='Search Location' onclick={onClickSearchHandler} class="slds-p-around_small"></lightning-button>
+          </lightning-layout-item>
+
+          <lightning-layout-item size="6"  padding="around-small">
+            <lightning-input label='Location Selected' value={selectedLocation} readonly ></lightning-input>
+            <lightning-input label='Restuarant Name' onchange={onChangeRestuarant} class="slds-p-around_small"></lightning-input>
+            <lightning-button label='Search Restuarant' onclick={onClickRestuarant} class="slds-p-around_small"></lightning-button>
+          </lightning-layout-item>
+      </lightning-layout>  
+  </lightning-card>    
+</template>

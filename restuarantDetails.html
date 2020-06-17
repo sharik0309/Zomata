@@ -1,0 +1,57 @@
+<template>
+    <template if:true={displayRestaurant}>
+
+         <lightning-card title={rest.restaurant.name} icon-name='custom:custom50'>
+             <lightning-badge label="Address"></lightning-badge>: {rest.restaurant.location.address} </br></br>
+             <lightning-badge label="Timing"></lightning-badge>: {rest.restaurant.timings}</br></br>
+             <lightning-badge label="Average Cost"></lightning-badge>: {rest.restaurant.average_cost_for_two}</br></br>
+             <lightning-badge label="Zip Code"></lightning-badge>: {rest.restaurant.location.zipcode}</br></br>
+          
+             <lightning-button label='Gallery' onclick={onClickGallery} icon-name="action:add_photo_video" class="slds-p-around_small"></lightning-button>
+             <lightning-button label='Google Map' onclick={onClickMap} icon-name="standard:location"  class="slds-p-around_small"></lightning-button>
+             <lightning-button label='Reviews' onclick={onClickReviews} icon-name="standard:location"  class="slds-p-around_small"></lightning-button>
+
+             <template if:true={viewGallery}>
+              <lightning-layout multiple-rows class=""> 
+                <lightning-layout-item  key={rest.restaurant.id} padding='around-small' size='3'>
+                  <img src={rest.restaurant.thumb} alt="Photo"  key={rest.restaurant.id}/>        
+                </lightning-layout-item>    
+            </lightning-layout>
+              <!-- <lightning-layout multiple-rows>
+                 <template for:each={rest.restaurant.photos} for:item='ph'>
+                   <lightning-layout-item  key={ph.photo.id} padding='around-small' size='3'>
+                     <img src={ph.photo.thumb_url} alt="Photo"  key={ph.photo.id}/>        
+                   </lightning-layout-item>      
+                 </template>
+
+               </lightning-layout>-->
+             </template>
+
+             <template if:true={viewMap}>
+                <lightning-map map-markers={mapMarkers}  markers-title={mapMarkers}  zoom-level='16'  class="slds-p-around_small">
+                </lightning-map>
+              </template>
+
+              <template if:true={viewReview}>
+           
+                <template for:each={review.user_reviews} for:item='rview' for:index='indx'>
+               
+                    <lightning-card key={rview.review.id} title={rview.review.rating_text} > 
+                      <div class="slds-p-around_medium">
+                      <p><strong>Review</strong> {rview.review.review_text}</p> </br>      
+                      <p><strong>Rating</strong>: {rview.review.rating}</p>  </br>                        
+                      <p><strong>Rated by</strong>: {rview.review.user.name}</p>  </br>
+                      <img src={rview.review.user.profile_image} alt="Photo"  key={rview.review.id}/>  
+                    </div>
+                    <footer class="slds-card__footer">..</footer>
+                    </lightning-card>
+                </template>
+
+          </template>
+
+             
+
+         </lightning-card>
+    </template>
+
+</template>

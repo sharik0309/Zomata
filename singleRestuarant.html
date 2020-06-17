@@ -1,0 +1,12 @@
+<template>
+    
+    <li  key={rest.restaurant.id} class="slds-item" >
+        <lightning-tile label={rest.restaurant.name} href="javascript:void(0)" type="media" onclick={handleRestaurantSelected} class="slds-p-around_xx-small">
+            <lightning-avatar slot="media" src={rest.restaurant.thumb} fallback-icon-name="standard:person_account" alternative-text={rest.restaurant.name}></lightning-avatar>
+              <ul class="slds-list_horizontal slds-has-dividers_right">
+                <li class="slds-item">{rest.restaurant.cuisines} . {rest.restaurant.user_rating.aggregate_rating}</li>
+              </ul>
+        </lightning-tile>
+    </li>
+
+</template>
